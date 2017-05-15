@@ -7,5 +7,5 @@
 {{/block}}
 
 {{#block ("body")}}
-<p>这是个 koa 的测试页面</p>
+<iframe class="frameclass" src="data:text/html;charset=utf-8,&lt;div class=&quot;test&quot; style=&quot; object-fit:cover&quot;&gt;&lt;video id=&quot;kt_player_internal&quot; preload=&quot;auto&quot; src=&quot;{{_XXXXXRESOURCE_ADDRESS_}}&quot; poster=&quot;{{_XXXPREVIEW_ADDR_}}&quot; controls=&quot;&quot; style=&quot;width: {{XXXWIDTH_}}px; height: {{XXXHEIGHT_}}px;&quot;&gt;&lt;/video&gt;&lt;/div&gt;"></iframe>
 {{/block}}
