@@ -40,8 +40,8 @@ module.exports = function (index, req, res, next, callback) {
                             rate = 0;
                         }
                         item = itemModel.replace(/{{detail}}/g, "/detail/"+results[i]['video_index'])
-                        //.replace(/{{thumbnail}}/g,results[i]['thumbnail'])
-                        .replace(/{{thumbnail}}/g,"./Oshine_files/preview3-650x385.jpg")
+                        .replace(/{{thumbnail}}/g,results[i]['thumbnail'])
+                        //.replace(/{{thumbnail}}/g,"./Oshine_files/preview3-650x385.jpg")
                         .replace(/{{title}}/g,results[i]['title'])
                         .replace(/{{view_count}}/g,results[i]['view_count'])
                         .replace(/{{rate}}/g, Number(rate * 100 ).toString()+"%");
