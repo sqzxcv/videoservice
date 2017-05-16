@@ -1,18 +1,14 @@
-                                                            <!-- Portfolio Item -->
-                                                            <div class="element be-hoverlay  not-wide no-wide-width-height  c_to_c style5-title" style="margin-bottom: 40px !important;">
-                                                                <div class="element-inner" style="margin-left: 40px;">
-                                                                    <a href="{{detail}}" class="thumb-wrap  mfp-image" title="port-1">
-                                                                        <div class="flip-wrap">
-                                                                            <div class="flip-img-wrap zoom-in-effect"><img src="{{thumbnail}}" alt /></div>
-                                                                        </div>
-                                                                        <div class="thumb-overlay">
-                                                                            <div class="thumb-bg" style="background-color:rgba(255,255,255,0.8); ">
-                                                                                <div class="thumb-title-wrap ">
-                                                                                    <div class="thumb-title be-animate animated " data-animation-type="flipInY" style="color: #000000; text-align: left;">{{title}}</div>
-                                                                                    <div class="portfolio-item-cats be-animate animated " data-animation-type="flipInY" style="color: #757575; text-align: left;"><span>{{view_count}}人观看</span><span> &middot; </span><span>评分:{{rate}}</span></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </a></div>
-                                                            </div>
-
+<div class="thumb">
+    <div class="thumb-content">
+        <a target="_blank" href="{{detail}}" class="kt_imgrc" title="{{title}}">
+            <span class="preview">
+                <img src="{{thumbnail}}" alt="{{title}}" onmouseover="KT_rotationStart(this, '{{thumbnails}}', 5)" onmouseout="KT_rotationStop(this)" />
+                <span class="duration">{{duration}}</span>
+                <span class="rating">{{rate}}</span></span>
+            <span class="name">{{title}}</span>
+            <span class="desc">
+                <span class="views">{{view_count}}次观看</span>
+                <span class="data">8 小时 前</span></span>
+        </a>
+    </div>
+</div>

@@ -1,179 +1,152 @@
 <!DOCTYPE html>
-<!-- saved from url=(0063)http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html -->
-<html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en-US" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
-	<!--[if IE]>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
-	<![endif]-->
+<!-- saved from url=(0036)http://www.99vv1.com/latest-updates/ -->
+<html lang="en">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Cache-Control" content="no-transform">
+        <meta http-equiv="Cache-Control" content="no-siteapp">
+        <title>test</title>
+        <meta name="description" content="久久热视频,第一时间观看国产,日韩,欧美最新成人影片,播放流畅，无卡顿.久久热在线视频只适合18岁或以上人士观看。本网站内容可能令人反感！切不可将本站的内容出售、出租、交给或借予年龄未满18岁的人士或将本网站内容向未满18岁人士出示、播放或放映。本站内容收录于世界各地，如果您发现本站的某些影片内容不合适，或者某些影片侵犯了您的的版权，请联系我们.">
+        <meta name="keywords" content="久久热视频,99热视频,久久视频,99视频,国产自拍,久久热视频下载,注册久久热账号,最新H视频,成人,超碰积分,91积分,免费超碰,超碰VIP,免费91porn,91VIP">
+        <meta name="generator" content="久久热视频 (http://www.99re5.com)">
+        <link href="../resource/select2.css" rel="stylesheet">
+        <link href="../resource/style.css" rel="stylesheet">
+        <link href="../resource/adv.css" rel="stylesheet">
+        <link href="../stylesheets/style.css" rel="stylesheet">
+        <script async="" src="../resource/analytics.js"></script>
+        <script language="javascript">if (screen.width < 1600) {
 
-	<title>{{title}}</title>
-	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-
-    <link rel="stylesheet" id="be-themes-layout-css" href="./Oshine_files/layout.css" type="text/css" media="all">
-    <link rel="stylesheet" id="be-pb-frontend-output-css" href="./Oshine_files/shortcodes.css" type="text/css" media="all">
-    <link rel="stylesheet" id="rs-plugin-settings-css" href="./Oshine_files/settings.css" type="text/css" media="all">
-
-    <link rel="stylesheet" id="be-themes-woocommerce-css-css" href="./Oshine_files/woocommerce.css" type="text/css" media="all">
-    <link rel="stylesheet" id="be-themes-bb-press-css-css" href="./Oshine_files/bb-press.css" type="text/css" media="all">
-    <link rel="stylesheet" id="be-style-css-css" href="./Oshine_files/style.css" type="text/css" media="all">
-    <link rel="stylesheet" id="be-themes-css-css" href="./Oshine_files/theme-options.css" type="text/css" media="all">
-    <link rel="stylesheet" href="./Oshine_files/icons.css" type="text/css" media="all">
-    <link rel="stylesheet" id="be-lightbox-css-css" href="./Oshine_files/magnific-popup.css" type="text/css" media="all">
-    <link rel="stylesheet" id="be-flexslider-css" href="./Oshine_files/flexslider.css" type="text/css" media="all">
-    <link rel="stylesheet" id="be-animations-css" href="./Oshine_files/animate-custom.css" type="text/css" media="all">
-    <link rel="stylesheet" id="be-slider-css" href="./Oshine_files/be-slider.css" type="text/css" media="all">
-    <link rel="stylesheet" id="ms-main-css" href="./Oshine_files/masterslider.main.css" type="text/css" media="all">
-    <link rel="stylesheet" id="ms-custom-css" href="./Oshine_files/custom.css" type="text/css" media="all">
-    <link rel="stylesheet" id="woocommerce_chosen_styles-css" href="./Oshine_files/chosen.css" type="text/css" media="all">
-    <link rel="stylesheet" id="woocommerce_chosen_styles-css2" href="./Oshine_files/prettyPhoto.css" type="text/css" media="all">
-	<link rel="stylesheet" id="be-themes-layout-group-css" href="./Oshine_files/font-awesome.css" type="text/css" media="all">
-
-	<link rel="stylesheet" id="redux-google-fonts-be_themes_data-css" href="./Oshine_files/css" type="text/css" media="all">
-    <div class="fit-vids-style">­<style>         		  .fluid-width-video-wrapper {        			 width: 100%;                     			 position: relative;              			 padding: 0;                      		  }                                   											  		  .fluid-width-video-wrapper iframe,  		  .fluid-width-video-wrapper object,  		  .fluid-width-video-wrapper embed {  			 position: absolute;              			 top: 0;                          			 left: 0;                         			 width: 100%;                     			 height: 100%;                    		  }                                   		</style></div><script type="text/javascript" src="./Oshine_files/jquery.js"></script>
-    <script type="text/javascript" src="./Oshine_files/jquery-migrate.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/modernizr-2.6.2.min.js"></script>
-
-  <link rel="shortcut icon" href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/images/favicon.ico" type="image/x-icon">
-  
-<script type="text/javascript" charset="UTF-8" src="./Oshine_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./Oshine_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="./Oshine_files/stats.js"></script></head>
-
-<body class="home page page-id-2471 page-template-default _masterslider _msp_version_2.14.2 no-section-scroll no-smooth-scroll left-header left-static all-ajax-content be-themes-layout-layout-wide">
-    <div class="sb-slidebar sb-left">
-        <i class="overlay-menu-close font-icon icon-icon_close"></i>
-        <div class="display-table">
-            <div id="sb-slidebar-content" class="sb-slidebar-content ajaxable">
-                <div id="logo-sidebar">
-                    <a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html"><img class="transparent-logo dark-scheme-logo" src="./Oshine_files/oshin-logo-black-green.png" alt=""></a>
-                </div>
-                <div class="menu">
-                    <ul id="slidebar-menu" class="clearfix">
-                        <li id="menu-item-2562" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2471 current_page_item menu-item-2562"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html">Work</a></li>
-                        <li id="menu-item-2700" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2700"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/about.html">About</a></li>
-                        <li id="menu-item-2699" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2699"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/blog-2.html">Journal</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/contact.html">Contact</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/single.html">Single Work</a></li>
-                        <li id="menu-item-2679" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2679"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/shop.html">Shop</a>
-                            <span class="mobile-sub-menu-controller"><i class="icon-icon_plus"></i></span>
-                            <ul class="sub-menu clearfix">
-                                <li id="menu-item-2691" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2691"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/cart.html">Cart</a></li>
-                                <li id="menu-item-2690" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2690"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/checkout.html">Checkout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="widget_text widget">
-                    <h6>Follow Us</h6>
-                    <div class="textwidget">
-                        <div class="icon-shortcode align-none"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html#" class="icon-shortcode icon-circle  " data-animation="fadeIn"><i class="font-icon icon-facebook tiny circle" style="border-style: solid; border-width: 0px; border-color: #323232; background-color: #3b5998; color: #fff;" data-animation="fadeIn" data-bg-color="#3b5998" data-hover-bg-color="#323232" data-color="#fff" data-hover-color="#ffffff" data-border-color="#323232" data-hover-border-color="#323232"></i></a></div>
-                        <div class="icon-shortcode align-none"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html#" class="icon-shortcode icon-circle  " data-animation="fadeIn"><i class="font-icon icon-twitter tiny circle" style="border-style: solid; border-width: 0px; border-color: #323232; background-color: #0c9aca; color: #fff;" data-animation="fadeIn" data-bg-color="#0c9aca" data-hover-bg-color="#323232" data-color="#fff" data-hover-color="#ffffff" data-border-color="#323232" data-hover-border-color="#323232"></i></a></div>
-                        <div class="icon-shortcode align-none"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html#" class="icon-shortcode icon-circle  " data-animation="fadeIn"><i class="font-icon icon-pinterest tiny circle" style="border-style: solid; border-width: 0px; border-color: #323232; background-color: #e4100f; color: #fff;" data-animation="fadeIn" data-bg-color="#e4100f" data-hover-bg-color="#323232" data-color="#fff" data-hover-color="#ffffff" data-border-color="#323232" data-hover-border-color="#323232"></i></a></div>
-                        <p>Copyright 2014 Brand Exponents All Rights Reserved</p>
-                    </div>
-                </div>
+                document.write('<link href="../resource/adv1600.css?v=2" rel="stylesheet" />')
+            }</script>
+        <link href="http://www.99vv1.com/rss/" rel="alternate" type="application/rss+xml">
+        <link href="http://www.99vv1.com/latest-updates/2/" rel="next">
+        <script type="text/javascript" src="../resource/KernelTeamVideoSharingSystem.js"></script>
+        <script type="text/javascript" src="../resource/KernelTeamVideoSharingMembers.js"></script>
+        <script type="text/javascript" src="../resource/KernelTeamImageRotator.js"></script>
+        <script type="text/javascript">KT_rotationEngineStartup(0.2, 0.5);</script>
+        <script src="../resource/header1.js"></script>
+    </head>
+    
+    <body>
+        <div class="wrapper">
+            <div class="wrap-head-spots">
+                <div class="container"></div>
             </div>
-        </div>
-    </div>
-    <div id="main-wrapper">
-        <div id="main" class="ajaxable layout-wide">
-            <!-- if ( isset($be_themes_data['opt-header-type']) && ('top' == $be_themes_data['opt-header-type'] ) ) { -->
-            <header id="header">
-                <div id="header-inner-wrap" class=" ">
-                    <div id="left-header-mobile" class="clearfix">
-                        <div class="logo" style="font-size:200%">
-                            私人影院
+            <header>
+                                    <div class="home-title">{{title}}
                         </div>
-                        <div class="mobile-nav-controller-wrap">
-                            <div class="menu-controls mobile-nav-controller" title="Mobile Menu Controller"><i class="font-icon icon-list2"></i></div>
+                <div class="header-inner NeedHidden">
+                    <div class="container clearfix">
+                        <div class="wrap-logo">
+                            <div class="logo logo1">
+                                
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="clearfix">
-                        <div class="mobile-menu">
-                            <ul id="mobile-menu" class="clearfix">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2471 current_page_item menu-item-2562"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html">Work</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2700"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/about.html">About</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2699"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/blog-2.html">Journal</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/contact.html">Contact</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/single.html">Single Work</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2679"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/shop.html">Shop</a>
-                                    <span class="mobile-sub-menu-controller"><i class="icon-icon_plus"></i></span>
-                                    <ul class="sub-menu clearfix">
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2691"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/cart.html">Cart</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2690"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/checkout.html">Checkout</a></li>
+                        <div class="panel">
+                            <div class="cap"></div>
+                            <div class="menu-btn sendwich" id="menu-btn">
+                                <span></span>
+                            </div>
+                            <div class="search-btn" id="search-btn">
+                                <span></span>
+                            </div>
+                            <div class="user-btns NeedHidden">
+                                <span>欢迎,
+                                    <a class="btn-user" href="http://www.99vv1.com/members/4495014/">sqzxcv</a>
+                                    <a href="http://www.99vv1.com/middle/" target="_blank">充值VIP</a>&nbsp;&nbsp;|
+                                    <span style="color:red">VIP(2017-08-13过期)&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                                <span class="separate"></span>
+                                <a href="http://www.99vv1.com/logout.php" class="btn-logout">登出</a>
+                                <span class="separate"></span>
+                                <a href="http://www.99vv1.com/my_video_upload/" class="btn-upload">上传</a></div>
+                            <div class="panel-group NeedHidden">
+                                <nav class="responsive-menu">
+                                    <ul>
+                                        <li>
+                                            <a href="http://www.99vv1.com/">首页</a></li>
+                                        <li class="active">
+                                            <a href="http://www.99vv1.com/latest-updates/">所有影片</a></li>
+                                        <li>
+                                            <a href="http://www.99vv1.com/albums/">成人图片</a></li>
+                                        <li>
+                                            <a href="http://www.99vv1.com/categories/">影片分类</a></li>
+                                        <li>
+                                            <a href="http://www.99vv1.com/viplatest-updates/">VIP专区</a></li>
+                                        <li>
+                                            <a href="http://www.99bbs9.com/forum-165-1.html" target="_blank">动态美图</a></li>
+                                        <li>
+                                            <a href="http://www.99bbs9.com/" target="_blank">论坛</a></li>
+                                        <li>
+                                            <a href="http://www.ebay.com/cln/99redizhi/99vv1-com/400506701012" target="_blank">网址发布</a></li>
+                                        <li>
+                                            <a href="http://www.99vv1.com/online.php" target="_blank">小姐信息</a></li>
+                                        <li class="hidden-big btn-login">
+                                            <a href="http://www.99vv1.com/logout.php">登出</a></li>
+                                        <li class="hidden-big">
+                                            <a href="http://www.99vv1.com/my_video_upload/" class="btn-upload">上传</a></li>
                                     </ul>
-                                </li>
-                            </ul>
+                                </nav>
+                                <div class="search">
+                                    <form class="form1" action="http://www.99vv1.com/search/">
+                                        <input type="text" name="q" value="" placeholder="请输入搜索内容">
+                                        <input type="submit" value=""></form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </header>
-            <!-- END HEADER -->
-
-            <div class="header-hero-section"></div>
-            <div id="content" class="no-sidebar-page">
-                <div id="content-wrap" class="page-builder">
-                    <section id="page-content">
-                        <div class="clearfix">
-
-                            <div class="be-section clearfix" data-headerscheme="background--light" style="">
-                                <div class="be-section-pad clearfix" style="padding-top:40px;padding-bottom:0px;">
-                                    <div class="be-row ">
-                                        <div class="one-col column-block clearfix    " data-animation="" style="  ">
-                                            <div class="be-custom-column-inner">
-                                                <div class="portfolio-all-wrap">
-                                                    <div class="portfolio full-screen full-screen-gutter style1-gutter three-col" data-action="get_ajax_full_screen_gutter_portfolio" data-category="" data-masonry="0" data-showposts="-1" data-paged="2" data-col="three" data-gallery="0" data-filter="portfolio_categories" data-show_filters="no" data-thumbnail-bg-color="rgba(255,255,255,0.8)" data-thumbnail-bg-gradient="" data-title-style="style5" data-cat-color="#757575" data-title-color="#000000" data-title-animation-type="flipInY" data-cat-animation-type="flipInY" data-hover-style="" data-gutter-width="40" data-img-grayscale="c_to_c" data-image-effect="zoom-in" data-gradient-style-color="" data-cat-hide="0" style="margin-right: 40px;">
-                                                        <div class="portfolio-container clickable clearfix portfolio-shortcode init-slide-bottom  masonry-activated" style="width: 320px; position: relative; height: 4317.66px;">
-
-                                                            <!-- Portfolio Item -->
-                                                            {{{VIDEOITEM}}}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+            <div class="content">
+                <div class="container">
+                    <div class="content-inner">
+                        <div class="main">
+                            <div class="wrap-heading">
+                                <div class="wrap-title">
+                                    <h1 class="title">最新上传</h1>
+                                    <span class="c-video">展示{{video_count}}个视频</span></div>
+                                <ul class="time-view NeedHidden" data-block="list_videos_common_videos_list">
+                                    <li>
+                                        <a href="http://www.99vv1.com/most-popular/" data-sort="video_viewed">按播放次数</a></li>
+                                    <li>
+                                        <span class="separate"></span>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.99vv1.com/top-rated/" data-sort="rating">按评分</a></li>
+                                    <li>
+                                        <span class="separate"></span>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.99vv1.com/most-favourited/" data-sort="most_favourited">收藏最多</a></li>
+                                    <li>
+                                        <span class="separate"></span>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.99vv1.com/longest/" data-sort="duration">按片长</a></li>
+                                </ul>
+                            </div>
+                            <div class="thumbs">
+                                    {{{VIDEOITEM}}}
+                            </div>
+                            <div class="pagination">
+                                <div class="block_content" >
+                                    {{{pageIndexs}}}
                                 </div>
                             </div>
-                        </div>
-                        <!--  End Page Content -->
-                    </section>
+                            <!--div class="spot"><img src="/img/spot-main.jpg" alt=""></div--></div>
+                    </div>
                 </div>
             </div>
+            <footer></footer>
         </div>
-        
-    </div> 
-    <a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html#" id="back-to-top" class="layout-wide" style="display: inline;"><i class="font-icon icon-arrow_carrot-up"></i></a>
+        <!-- jQuery bbb-->
+        <!-- jQuery eee-->
+        <script src="../resource/select2.full.min.js"></script>
+        <script src="../resource/script.js"></script>
+        <script src="../resource/adv.js"></script>
+        <span style="display:none"></span>
+    </body>
 
-
-    
-    <input type="hidden" id="all_ajax_exclude_links" value="">
-    <script>
-        var no_ajax_pages = [];
-    </script>
-    <script type="text/javascript" src="./Oshine_files/be-modules-plugin.js"></script>
-    <script type="text/javascript" src="./Oshine_files/plugins.js"></script>
-    <script type="text/javascript" src="./Oshine_files/script.js"></script>
-    <script type="text/javascript" src="./Oshine_files/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/be-modules-script.js"></script>
-    <script type="text/javascript" src="./Oshine_files/add-to-cart.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/jquery.blockUI.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/woocommerce.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/jquery.cookie.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/cart-fragments.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/woocommerce.js"></script>
-    <script type="text/javascript" src="./Oshine_files/bb-press.js"></script>
-    <script type="text/javascript" src="./Oshine_files/be-slider.js"></script>
-    <script type="text/javascript" src="./Oshine_files/js"></script>
-    <script type="text/javascript" src="./Oshine_files/gmap3.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/jquery-ui-1.8.22.custom.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/masterslider.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/chosen.jquery.min.js"></script>
-    <script type="text/javascript" src="./Oshine_files/chosen-frontend.min.js"></script>
-
-
-
-
-</body></html>
+</html>
