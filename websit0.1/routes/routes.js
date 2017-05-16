@@ -14,8 +14,9 @@ module.exports = function (app) {
 
     /* GET home page. */
     app.get('/', function (req, res, next) {
-        res.render('index', { title: '首页' });
+        //res.render('index', { title: '首页' });
         // next();
+        index(0, req, res, next, function(err) {});
     });
 
     app.get('/detail/:id', function (req, res, next) {

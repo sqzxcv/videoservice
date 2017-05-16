@@ -1,11 +1,179 @@
-{{extend ("./layout/layout")}}
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html -->
+<html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en-US" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<![endif]-->
 
-{{#block ("head")}}
-    <style>
+	<title>{{title}}</title>
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-    </style>
-{{/block}}
+    <link rel="stylesheet" id="be-themes-layout-css" href="./Oshine_files/layout.css" type="text/css" media="all">
+    <link rel="stylesheet" id="be-pb-frontend-output-css" href="./Oshine_files/shortcodes.css" type="text/css" media="all">
+    <link rel="stylesheet" id="rs-plugin-settings-css" href="./Oshine_files/settings.css" type="text/css" media="all">
 
-{{#block ("body")}}
-<p>这是个 koa 的测试页面</p>
-{{/block}}
+    <link rel="stylesheet" id="be-themes-woocommerce-css-css" href="./Oshine_files/woocommerce.css" type="text/css" media="all">
+    <link rel="stylesheet" id="be-themes-bb-press-css-css" href="./Oshine_files/bb-press.css" type="text/css" media="all">
+    <link rel="stylesheet" id="be-style-css-css" href="./Oshine_files/style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="be-themes-css-css" href="./Oshine_files/theme-options.css" type="text/css" media="all">
+    <link rel="stylesheet" href="./Oshine_files/icons.css" type="text/css" media="all">
+    <link rel="stylesheet" id="be-lightbox-css-css" href="./Oshine_files/magnific-popup.css" type="text/css" media="all">
+    <link rel="stylesheet" id="be-flexslider-css" href="./Oshine_files/flexslider.css" type="text/css" media="all">
+    <link rel="stylesheet" id="be-animations-css" href="./Oshine_files/animate-custom.css" type="text/css" media="all">
+    <link rel="stylesheet" id="be-slider-css" href="./Oshine_files/be-slider.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ms-main-css" href="./Oshine_files/masterslider.main.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ms-custom-css" href="./Oshine_files/custom.css" type="text/css" media="all">
+    <link rel="stylesheet" id="woocommerce_chosen_styles-css" href="./Oshine_files/chosen.css" type="text/css" media="all">
+    <link rel="stylesheet" id="woocommerce_chosen_styles-css2" href="./Oshine_files/prettyPhoto.css" type="text/css" media="all">
+	<link rel="stylesheet" id="be-themes-layout-group-css" href="./Oshine_files/font-awesome.css" type="text/css" media="all">
+
+	<link rel="stylesheet" id="redux-google-fonts-be_themes_data-css" href="./Oshine_files/css" type="text/css" media="all">
+    <div class="fit-vids-style">­<style>         		  .fluid-width-video-wrapper {        			 width: 100%;                     			 position: relative;              			 padding: 0;                      		  }                                   											  		  .fluid-width-video-wrapper iframe,  		  .fluid-width-video-wrapper object,  		  .fluid-width-video-wrapper embed {  			 position: absolute;              			 top: 0;                          			 left: 0;                         			 width: 100%;                     			 height: 100%;                    		  }                                   		</style></div><script type="text/javascript" src="./Oshine_files/jquery.js"></script>
+    <script type="text/javascript" src="./Oshine_files/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/modernizr-2.6.2.min.js"></script>
+
+  <link rel="shortcut icon" href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/images/favicon.ico" type="image/x-icon">
+  
+<script type="text/javascript" charset="UTF-8" src="./Oshine_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./Oshine_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="./Oshine_files/stats.js"></script></head>
+
+<body class="home page page-id-2471 page-template-default _masterslider _msp_version_2.14.2 no-section-scroll no-smooth-scroll left-header left-static all-ajax-content be-themes-layout-layout-wide">
+    <div class="sb-slidebar sb-left">
+        <i class="overlay-menu-close font-icon icon-icon_close"></i>
+        <div class="display-table">
+            <div id="sb-slidebar-content" class="sb-slidebar-content ajaxable">
+                <div id="logo-sidebar">
+                    <a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html"><img class="transparent-logo dark-scheme-logo" src="./Oshine_files/oshin-logo-black-green.png" alt=""></a>
+                </div>
+                <div class="menu">
+                    <ul id="slidebar-menu" class="clearfix">
+                        <li id="menu-item-2562" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2471 current_page_item menu-item-2562"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html">Work</a></li>
+                        <li id="menu-item-2700" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2700"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/about.html">About</a></li>
+                        <li id="menu-item-2699" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2699"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/blog-2.html">Journal</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/contact.html">Contact</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/single.html">Single Work</a></li>
+                        <li id="menu-item-2679" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2679"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/shop.html">Shop</a>
+                            <span class="mobile-sub-menu-controller"><i class="icon-icon_plus"></i></span>
+                            <ul class="sub-menu clearfix">
+                                <li id="menu-item-2691" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2691"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/cart.html">Cart</a></li>
+                                <li id="menu-item-2690" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2690"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/checkout.html">Checkout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="widget_text widget">
+                    <h6>Follow Us</h6>
+                    <div class="textwidget">
+                        <div class="icon-shortcode align-none"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html#" class="icon-shortcode icon-circle  " data-animation="fadeIn"><i class="font-icon icon-facebook tiny circle" style="border-style: solid; border-width: 0px; border-color: #323232; background-color: #3b5998; color: #fff;" data-animation="fadeIn" data-bg-color="#3b5998" data-hover-bg-color="#323232" data-color="#fff" data-hover-color="#ffffff" data-border-color="#323232" data-hover-border-color="#323232"></i></a></div>
+                        <div class="icon-shortcode align-none"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html#" class="icon-shortcode icon-circle  " data-animation="fadeIn"><i class="font-icon icon-twitter tiny circle" style="border-style: solid; border-width: 0px; border-color: #323232; background-color: #0c9aca; color: #fff;" data-animation="fadeIn" data-bg-color="#0c9aca" data-hover-bg-color="#323232" data-color="#fff" data-hover-color="#ffffff" data-border-color="#323232" data-hover-border-color="#323232"></i></a></div>
+                        <div class="icon-shortcode align-none"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html#" class="icon-shortcode icon-circle  " data-animation="fadeIn"><i class="font-icon icon-pinterest tiny circle" style="border-style: solid; border-width: 0px; border-color: #323232; background-color: #e4100f; color: #fff;" data-animation="fadeIn" data-bg-color="#e4100f" data-hover-bg-color="#323232" data-color="#fff" data-hover-color="#ffffff" data-border-color="#323232" data-hover-border-color="#323232"></i></a></div>
+                        <p>Copyright 2014 Brand Exponents All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+        <div id="main" class="ajaxable layout-wide">
+            <!-- if ( isset($be_themes_data['opt-header-type']) && ('top' == $be_themes_data['opt-header-type'] ) ) { -->
+            <header id="header">
+                <div id="header-inner-wrap" class=" ">
+                    <div id="left-header-mobile" class="clearfix">
+                        <div class="logo" style="font-size:200%">
+                            私人影院
+                        </div>
+                        <div class="mobile-nav-controller-wrap">
+                            <div class="menu-controls mobile-nav-controller" title="Mobile Menu Controller"><i class="font-icon icon-list2"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix">
+                        <div class="mobile-menu">
+                            <ul id="mobile-menu" class="clearfix">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2471 current_page_item menu-item-2562"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html">Work</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2700"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/about.html">About</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2699"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/blog-2.html">Journal</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/contact.html">Contact</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2789"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/single.html">Single Work</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2679"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/shop.html">Shop</a>
+                                    <span class="mobile-sub-menu-controller"><i class="icon-icon_plus"></i></span>
+                                    <ul class="sub-menu clearfix">
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2691"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/cart.html">Cart</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2690"><a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/checkout.html">Checkout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER -->
+
+            <div class="header-hero-section"></div>
+            <div id="content" class="no-sidebar-page">
+                <div id="content-wrap" class="page-builder">
+                    <section id="page-content">
+                        <div class="clearfix">
+
+                            <div class="be-section clearfix" data-headerscheme="background--light" style="">
+                                <div class="be-section-pad clearfix" style="padding-top:40px;padding-bottom:0px;">
+                                    <div class="be-row ">
+                                        <div class="one-col column-block clearfix    " data-animation="" style="  ">
+                                            <div class="be-custom-column-inner">
+                                                <div class="portfolio-all-wrap">
+                                                    <div class="portfolio full-screen full-screen-gutter style1-gutter three-col" data-action="get_ajax_full_screen_gutter_portfolio" data-category="" data-masonry="0" data-showposts="-1" data-paged="2" data-col="three" data-gallery="0" data-filter="portfolio_categories" data-show_filters="no" data-thumbnail-bg-color="rgba(255,255,255,0.8)" data-thumbnail-bg-gradient="" data-title-style="style5" data-cat-color="#757575" data-title-color="#000000" data-title-animation-type="flipInY" data-cat-animation-type="flipInY" data-hover-style="" data-gutter-width="40" data-img-grayscale="c_to_c" data-image-effect="zoom-in" data-gradient-style-color="" data-cat-hide="0" style="margin-right: 40px;">
+                                                        <div class="portfolio-container clickable clearfix portfolio-shortcode init-slide-bottom  masonry-activated" style="width: 320px; position: relative; height: 4317.66px;">
+
+                                                            <!-- Portfolio Item -->
+                                                            {{{VIDEOITEM}}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--  End Page Content -->
+                    </section>
+                </div>
+            </div>
+        </div>
+        
+    </div> 
+    <a href="http://astritbublaku.com/demos/oshine/oshine-demo/v6/index.html#" id="back-to-top" class="layout-wide" style="display: inline;"><i class="font-icon icon-arrow_carrot-up"></i></a>
+
+
+    
+    <input type="hidden" id="all_ajax_exclude_links" value="">
+    <script>
+        var no_ajax_pages = [];
+    </script>
+    <script type="text/javascript" src="./Oshine_files/be-modules-plugin.js"></script>
+    <script type="text/javascript" src="./Oshine_files/plugins.js"></script>
+    <script type="text/javascript" src="./Oshine_files/script.js"></script>
+    <script type="text/javascript" src="./Oshine_files/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/be-modules-script.js"></script>
+    <script type="text/javascript" src="./Oshine_files/add-to-cart.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/jquery.blockUI.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/woocommerce.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/cart-fragments.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/woocommerce.js"></script>
+    <script type="text/javascript" src="./Oshine_files/bb-press.js"></script>
+    <script type="text/javascript" src="./Oshine_files/be-slider.js"></script>
+    <script type="text/javascript" src="./Oshine_files/js"></script>
+    <script type="text/javascript" src="./Oshine_files/gmap3.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/jquery-ui-1.8.22.custom.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/masterslider.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="./Oshine_files/chosen-frontend.min.js"></script>
+
+
+
+
+</body></html>
