@@ -18,7 +18,7 @@ module.exports = function (app) {
         // next();
     });
 
-    app.get('/:id', function (req, res, next) {
+    app.get('/detail/:id', function (req, res, next) {
 
         var videoIndex = parseInt(req.params.id, 10);
 
