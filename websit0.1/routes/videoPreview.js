@@ -1,12 +1,13 @@
 var mysql = require('mysql');
 var async = require("async");
+var config = require('../config'); 
 
 module.exports = function (index, req, res, next, callback) {
 
     var pool = mysql.createPool({
-        host: "172.104.91.83",
-        user: "admin",
-        password: "Anhuiqiang851",
+        host: config['dbhost'],
+        user: config['dbuser'],
+        password: config['dbpwd'],
         database: "BB",
         connectionLimit: 10,
         port: "3306",

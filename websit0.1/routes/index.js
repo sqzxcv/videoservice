@@ -2,6 +2,7 @@ var mysql = require('mysql');
 var async = require("async");
 var fs = require("fs");
 var path = require("path");
+var config = require('../config');
 
 /*
 
@@ -10,9 +11,9 @@ var itemModel = fs.readFileSync("./resource/HomeItemModel").toString();
 module.exports = function (index, req, res, next, callback) {
 
     var pool = mysql.createPool({
-        host: "172.104.91.83",
-        user: "admin",
-        password: "Anhuiqiang851",
+        host: config['dbhost'],
+        user: config['dbuser'],
+        password: config['dbpwd'],
         database: "BB",
         connectionLimit: 10,
         port: "3306",
