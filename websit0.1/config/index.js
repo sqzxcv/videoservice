@@ -5,11 +5,11 @@ var config = require("./default");
 if (process.env.NODE_ENV === 'production') {
 
     var production = require('./production');
-    config = mergeMap(production);
+    config = mergeMap(config,production);
 } else {
 
     var dev = require('./dev');
-    config = mergeMap(dev);
+    config = mergeMap(config,dev);
 
 }
 module.exports = config;
