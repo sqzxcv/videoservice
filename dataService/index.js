@@ -9,21 +9,23 @@ const zlib = require('zlib');
 const fs = require('fs');
 const event = new (require('events').EventEmitter)();
 const schedule = require("node-schedule");
+const nodemailer = require("nodemailer");
 
 var currentPageIndex = 0;
 var token = "fhmodnam8ua7drus1ddf6gsjp3";
 var requestURL_last_updates = 'http://www.99vv1.com/latest-updates/';
 var requestURL_most_favourited = "http://www.99vv1.com/most-favourited/";
+var mailCotent =[];
 
 function main() {
 
     event.on("requireNewPage", function (pageIndex) {
 
-        if (currentPageIndex < 3) {
+        if (pageIndex < 3) {
             console.log("------------------------开始请求视频列表,页码:" + pageIndex);
             //请求视频资源
             var options = {
-                url: requestURL_most_favourited + pageIndex + '/',
+                url: requestURL_last_updates + pageIndex + '/',
                 headers: {
                     'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36",
                     'Referer': 'http://www.99vv1.com/',
@@ -32,54 +34,9 @@ function main() {
             };
             request(options, callback);
         } else {
-            
+            sendEmail(mailCotent);
         }
     });
-
-    // 登出地址
-    // http://www.99vv1.com/logout.php
-
-    // var logoutPt = {
-
-    //     url: 'http://www.99vv1.com/logout.php',//'http://www.99vv1.com/get_file/3/938d5af72ed17b29a8cd7c335282884a/64000/64217/64217.mp4',
-    //     headers: {
-    //         'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/602.4.8 (KHTML, like Gecko) Version/10.0.3 Safari/602.4.8",
-    //         'Referer': 'http://www.99vv1.com/',
-    //     }
-    // }
-    // request(logoutPt, function (error, response, body) {
-
-    //     //登录获取 cookie
-    //     var options = {
-    //         url: 'http://www.99vv1.com/login.php?action=login&username=sqzxcv&pass=19851223',//'http://www.99vv1.com/get_file/3/938d5af72ed17b29a8cd7c335282884a/64000/64217/64217.mp4',
-    //         headers: {
-    //             'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/602.4.8 (KHTML, like Gecko) Version/10.0.3 Safari/602.4.8",
-    //             'Referer': 'http://www.99vv1.com/login.php',
-    //             "Connection": "keep-alive",
-    //         }
-    //     };
-    //     function loginCallback(error, response, body) {
-    //         if (!error && response.statusCode == 200) {
-    //             // var info = JSON.parse(body);
-    //             // console.log(info.stargazers_count + " Stars");
-    //             // console.log(info.forks_count + " Forks");
-
-    //             if (response.headers['set-cookie'] != undefined) {
-
-    //                 token = ((response.headers['set-cookie'][0].replace(/\s+/g, "")).split(";")[0]).split("=")[1]; //["PHPSESSID"];
-    //                 console.log("++++++++++++登录成功, token:" + token);
-    //             } else {
-    //                 console.log("++++++++++++登录成功, token 没有变化:" + token);
-    //             }
-    //             event.emit("requireNewPage", currentPageIndex);
-    //         } else {
-    //             console.error("网站登录失败");
-    //         }
-    //     }
-
-    //     request(options, loginCallback);
-    // });
-
     event.emit("requireNewPage", currentPageIndex);
 }
 
@@ -228,6 +185,7 @@ function callback(error, response, body) {
                 var sqlVideoEntity = [], tagEn = [], tagMap = [];
                 var sql, sql2;
                 var param_sql, par;
+                var titles = [];
                 for (var i = 0; i < paramArr.length; i++) {
                     var result = rDict[Number(paramArr[i]['video_index']).toString()];
                     if (result == null || result == undefined) {
@@ -238,7 +196,7 @@ function callback(error, response, body) {
                     param_sql = [paramArr[i]['video_index'], paramArr[i]['title'], paramArr[i]['thumbnail'], paramArr[i]['view_count'], paramArr[i]['upload_time'], paramArr[i]['duration'], result['video_url'],
                     result['video_alt_url'], result['preview_url'], result['like'], result['unlike'], paramArr[i]['url'], result['width'], result['height']];
                     sqlVideoEntity.push(execTrans._getNewSqlParamEntity(sql, param_sql));
-
+                    titles.push(paramArr[i]['title']);
                 }
                 if (sqlVideoEntity.length == 0) {
 
@@ -252,6 +210,7 @@ function callback(error, response, body) {
                         console.error("事务执行失败");
                     } else {
                         console.log("done.");
+                        mailCotent = mailCotent.concat(titles);
                     }
 
                     //开始插入 tag 及其关系
@@ -291,15 +250,49 @@ function callback(error, response, body) {
     }
 }
 
-main();
+//main();
 
 //定时任务:
 function scheduleJob() {
 
     //每天早上8点钟获取最新内容
-    schedule.scheduleJob({ hour: 8 }, function () {
+    var j = schedule.scheduleJob({hour:8}, function () {
 
         currentPageIndex = 0;
         main();
+    });
+}
+
+scheduleJob();
+
+function sendEmail(content) {
+
+    var text;
+    if (content.length != 0) {
+        text ="本次总共采集到"+content.length+"篇文章,具体标题如下:\n"+content.join('\n');
+    } else {
+        text = "本次采集失败,请检查原因";
+    }
+    var nodemailer = require('nodemailer');
+    var transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'love8video@gmail.com',
+            pass: '19851223'
+        }
+    });
+    var mailOptions = {
+        from: 'love8video@gmail.com ', // sender address
+        to: 'sqzxcv@gmail.com', // list of receivers
+        subject: 'Hello ✔', // Subject line
+        text: text, // plaintext body
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Message sent: ' + info.response);
+        }
     });
 }
