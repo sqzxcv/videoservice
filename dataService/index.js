@@ -8,25 +8,32 @@ const async = require('async');
 const zlib = require('zlib');
 const fs = require('fs');
 const event = new (require('events').EventEmitter)();
+const schedule = require("node-schedule");
 
-var currentPageIndex = 0;//当前请求到10页
+var currentPageIndex = 0;
 var token = "fhmodnam8ua7drus1ddf6gsjp3";
+var requestURL_last_updates = 'http://www.99vv1.com/latest-updates/';
+var requestURL_most_favourited = "http://www.99vv1.com/most-favourited/";
 
 function main() {
 
     event.on("requireNewPage", function (pageIndex) {
 
-        console.log("------------------------开始请求视频列表,页码:" + pageIndex);
-        //请求视频资源
-        var options = {
-            url: 'http://www.99vv1.com/latest-updates/' + pageIndex + '/',
-            headers: {
-                'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36",
-                'Referer': 'http://www.99vv1.com/',
-                'Cookie': "PHPSESSID=" + token + "; kt_qparams=sort_by%3Dpost_date; _gat=1; kt_tcookie=1; kt_is_visited=1; _ga=GA1.2.686339515.1493887117; _gid=GA1.2.1778669130.1494145057"
-            }
-        };
-        request(options, callback);
+        if (currentPageIndex < 3) {
+            console.log("------------------------开始请求视频列表,页码:" + pageIndex);
+            //请求视频资源
+            var options = {
+                url: requestURL_most_favourited + pageIndex + '/',
+                headers: {
+                    'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36",
+                    'Referer': 'http://www.99vv1.com/',
+                    'Cookie': "PHPSESSID=" + token + "; kt_qparams=sort_by%3Dpost_date; _gat=1; kt_tcookie=1; kt_is_visited=1; _ga=GA1.2.686339515.1493887117; _gid=GA1.2.1778669130.1494145057"
+                }
+            };
+            request(options, callback);
+        } else {
+            
+        }
     });
 
     // 登出地址
@@ -99,7 +106,7 @@ function callback(error, response, body) {
             duration = (parseInt(tmparr[0], 10) * 60 + parseInt(tmparr[1], 10)) * 1000;//毫秒;时间戳
             tmpNode = $("span[class=desc]", element);
             view_count = parseInt($("span[class=views]", tmpNode).text().replace("次观看", ""), 10);
-            upload_time = 0;//$("span[class=data]", tmpNode).text().replace(/\s+/g, "");
+            upload_time = new Date().getTime();//$("span[class=data]", tmpNode).text().replace(/\s+/g, "");
             var param = {
                 "title": title,
                 "url": url,
@@ -142,15 +149,15 @@ function callback(error, response, body) {
                     var scriptText = $($("div[class=video]").children()[2]).html();
                     if (scriptText == null) {
                         console.error("失败:获取脚本失败, URL:" + url);
-                        fs.writeFileSync("/Users/shengqiang/Desktop/tmp/" + url.replace(/\//g,"-") + ".html", body);
-                        callback("请求视频识别,URL:"+url, null);
+                        fs.writeFileSync("/Users/shengqiang/Desktop/tmp/" + url.replace(/\//g, "-") + ".html", body);
+                        callback("请求视频识别,URL:" + url, null);
                         return;
                     }
                     var tmpInfo = ((/{[\s\S]*};/).exec((/flashvars\s*=\s*{[\s\S]*?};/).exec($($("div[class=video]").children()[2]).text())[0])[0]).replace(/\s+/g, "");
                     tmpInfo = tmpInfo.replace(/{/g, "");
                     tmpInfo = tmpInfo.replace(/};/g, "");
                     tmpInfo = tmpInfo.replace(/'/g, "");
-                    tmpInfo = tmpInfo.replace(/http:\/\//g,"");
+                    tmpInfo = tmpInfo.replace(/http:\/\//g, "");
                     // var content = $("video").html();
                     // contentDict[url] = content;
                     var arr = tmpInfo.split(',');
@@ -164,10 +171,10 @@ function callback(error, response, body) {
                     tmpInfo = ((/kt_player\([\s\S]*?\);/).exec($($("div[class=video]").children()[2]).text().replace(/\s+/g, "")))[0]
                     tmpInfo = tmpInfo.replace(/kt_player\(/g, "");
                     tmpInfo = tmpInfo.replace(/\);/g, "");
-                    tmpInfo = tmpInfo.replace(/'/g,"");
+                    tmpInfo = tmpInfo.replace(/'/g, "");
                     var tmpArr = tmpInfo.split(',');
                     videoInfo['width'] = parseInt(tmpArr[2], 10);
-                    videoInfo['height'] = parseInt(tmpArr[3],10);
+                    videoInfo['height'] = parseInt(tmpArr[3], 10);
 
                     var progress = $("li[class=progress]", $("ul[class=rate]")).text();
                     progress = progress.split('(')[1];
@@ -223,19 +230,19 @@ function callback(error, response, body) {
                 var param_sql, par;
                 for (var i = 0; i < paramArr.length; i++) {
                     var result = rDict[Number(paramArr[i]['video_index']).toString()];
-                    if (result ==null || result == undefined) {
+                    if (result == null || result == undefined) {
                         continue;
                     }
                     // 
                     sql = "INSERT ignore INTO videos(video_index,title,thumbnail,view_count,upload_time,duration,lq_content,hq_content,preview_url,v_like,v_unlike,url,width,height) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-                    param_sql = [paramArr[i]['video_index'], paramArr[i]['title'], paramArr[i]['thumbnail'], paramArr[i]['view_count'], paramArr[i]['upload_time'], paramArr[i]['duration'], result['video_url'], 
-                    result['video_alt_url'], result['preview_url'], result['like'], result['unlike'],paramArr[i]['url'],result['width'],result['height']];
+                    param_sql = [paramArr[i]['video_index'], paramArr[i]['title'], paramArr[i]['thumbnail'], paramArr[i]['view_count'], paramArr[i]['upload_time'], paramArr[i]['duration'], result['video_url'],
+                    result['video_alt_url'], result['preview_url'], result['like'], result['unlike'], paramArr[i]['url'], result['width'], result['height']];
                     sqlVideoEntity.push(execTrans._getNewSqlParamEntity(sql, param_sql));
 
                 }
                 if (sqlVideoEntity.length == 0) {
 
-                    console.error("!!!!!!!!!!!!!!!!第"+currentPageIndex+"页的所有视频都下载失败,");
+                    console.error("!!!!!!!!!!!!!!!!第" + currentPageIndex + "页的所有视频都下载失败,");
                     event.emit("requireNewPage", ++currentPageIndex);
                     return;
                 }
@@ -259,7 +266,7 @@ function callback(error, response, body) {
                         }
                     }
                     if (tagEn.length == 0) {
-                        console.log("第"+currentPageIndex+"页视频没有 tag");
+                        console.log("第" + currentPageIndex + "页视频没有 tag");
                         event.emit("requireNewPage", ++currentPageIndex);
                         return;
                     }
@@ -285,3 +292,14 @@ function callback(error, response, body) {
 }
 
 main();
+
+//定时任务:
+function scheduleJob() {
+
+    //每天早上8点钟获取最新内容
+    schedule.scheduleJob({ hour: 8 }, function () {
+
+        currentPageIndex = 0;
+        main();
+    });
+}
