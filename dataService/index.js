@@ -102,11 +102,11 @@ function callback(error, response, body) {
                 if (response.statusCode == 200) {
 
                     var $ = cheerio.load(body);
-                    fs.writeFileSync("/Users/shengqiang/Desktop/tmp/body.html", body);
+                    fs.writeFileSync("var/log/dataService/body.html", body);
                     var scriptText = $($("div[class=video]").children()[2]).html();
                     if (scriptText == null) {
                         console.error("失败:获取脚本失败, URL:" + url);
-                        fs.writeFileSync("/Users/shengqiang/Desktop/tmp/" + url.replace(/\//g, "-") + ".html", body);
+                        fs.writeFileSync("var/log/dataService/" + url.replace(/\//g, "-") + ".html", body);
                         callback("请求视频识别,URL:" + url, null);
                         return;
                     }
