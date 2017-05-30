@@ -13,7 +13,7 @@ module.exports = {
       script: "./uploadData/index.js",
       out_file: "/var/log/uploadData/app.log",
       error_file: "/var/log/uploadData/err.log",
-      port: "30001",
+      port: "30002",
       env: {
         COMMON_VARIABLE: 'true'
       },
