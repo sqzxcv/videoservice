@@ -210,7 +210,9 @@ function callback(error, response, body) {
                     paramArr[i]['unlike'] = result['unlike'];
                     paramArr[i]['width'] = result['width'];
                     paramArr[i]['height'] = result['height'];
+                    paramArr[i]['tags'] = result['tags'];
                 }
+                
                 outPutResult = outPutResult.concat(paramArr);
                 event.emit("requireNewPage", ++currentPageIndex);
             }
