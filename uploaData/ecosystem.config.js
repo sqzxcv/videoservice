@@ -7,12 +7,12 @@ module.exports = {
 
     // First application
     {
-      name: "dataService",
+      name: "uploadData",
       max_memory_restart: "1024M",
       log_date_format: "YYYY-MM-DD HH:mm:ss SSS",
-      script: "./dataService/index.js",
-      out_file: "/var/log/dataService/app.log",
-      error_file: "/var/log/dataService/err.log",
+      script: "./uploadData/index.js",
+      out_file: "/var/log/uploadData/app.log",
+      error_file: "/var/log/uploadData/err.log",
       port: "30001",
       env: {
         COMMON_VARIABLE: 'true'
