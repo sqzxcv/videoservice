@@ -12,10 +12,10 @@ const schedule = require("node-schedule");
 const nodemailer = require("nodemailer");
 
 var currentPageIndex = 0;
-var token = "fhmodnam8ua7drus1ddf6gsjp3";
+var token = "vtiarsokuaemt7v16ggr7oo317";
 var requestURL_last_updates = 'http://www.99vv1.com/latest-updates/';
 var requestURL_most_favourited = "http://www.99vv1.com/most-favourited/";
-var mailCotent =[];
+var mailCotent = [];
 
 function main() {
 
@@ -47,6 +47,7 @@ function callback(error, response, body) {
         var $ = cheerio.load(body);
         var videoParent = $("div[class=thumbs]").html();
         var videos = $("a[class=kt_imgrc]", videoParent).toArray();
+fs.writeFileSync("/Users/shengqiang/Desktop/tmp/body.html", body);
 
         //先处理视频列表
         var title, url, thumbnail, duration, like, unlike, cotent, view_count, upload_time, video_index = 0, tmpNode, tmparr;
@@ -102,11 +103,21 @@ function callback(error, response, body) {
                 if (response.statusCode == 200) {
 
                     var $ = cheerio.load(body);
-                    fs.writeFileSync("/var/log/dataService/body.html", body);
+                    try {
+                        fs.writeFileSync("/var/log/dataService/body.html", body);
+                    } catch (error) {
+                        console.error(error);
+                        fs.writeFileSync("/Users/shengqiang/Desktop/tmp/body.html", body);
+                    }
                     var scriptText = $($("div[class=video]").children()[2]).html();
                     if (scriptText == null) {
                         console.error("失败:获取脚本失败, URL:" + url);
-                        fs.writeFileSync("/var/log/dataService/" + url.replace(/\//g, "-") + ".html", body);
+                        try {
+                            fs.writeFileSync("/var/log/dataService/" + url.replace(/\//g, "-") + ".html", body);
+                        } catch (error) {
+                            conlog.error(error);
+                            fs.writeFileSync("/Users/shengqiang/Desktop/tmp/" + url.replace(/\//g, "-") + ".html", body);
+                        }
                         callback("请求视频识别,URL:" + url, null);
                         return;
                     }
@@ -166,7 +177,7 @@ function callback(error, response, body) {
                     callback(null, result);
                 } else {
 
-                    callback(err, null);
+                    callback(error, null);
                 }
 
             });
@@ -256,7 +267,7 @@ main();
 function scheduleJob() {
 
     //每天早上8点钟获取最新内容
-    var j = schedule.scheduleJob({hour:8}, function () {
+    var j = schedule.scheduleJob({ hour: 8 }, function () {
 
         currentPageIndex = 0;
         main();
@@ -269,7 +280,7 @@ function sendEmail(content) {
 
     var text;
     if (content.length != 0) {
-        text ="本次总共采集到"+content.length+"篇文章,具体标题如下:\n"+content.join('\n');
+        text = "本次总共采集到" + content.length + "篇文章,具体标题如下:\n" + content.join('\n');
     } else {
         text = "本次采集失败,请检查原因";
     }
