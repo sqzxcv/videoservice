@@ -47,7 +47,7 @@ function callback(error, response, body) {
         var $ = cheerio.load(body);
         var videoParent = $("div[class=thumbs]").html();
         var videos = $("a[class=kt_imgrc]", videoParent).toArray();
-fs.writeFileSync("/Users/shengqiang/Desktop/tmp/body.html", body);
+        fs.writeFileSync("/Users/shengqiang/Desktop/tmp/body.html", body);
 
         //先处理视频列表
         var title, url, thumbnail, duration, like, unlike, cotent, view_count, upload_time, video_index = 0, tmpNode, tmparr;
@@ -103,21 +103,13 @@ fs.writeFileSync("/Users/shengqiang/Desktop/tmp/body.html", body);
                 if (response.statusCode == 200) {
 
                     var $ = cheerio.load(body);
-                    try {
-                        fs.writeFileSync("/var/log/dataService/body.html", body);
-                    } catch (error) {
-                        console.error(error);
-                        fs.writeFileSync("/Users/shengqiang/Desktop/tmp/body.html", body);
-                    }
+                    fs.writeFileSync("/Users/shengqiang/Desktop/tmp/body.html", body);
+
                     var scriptText = $($("div[class=video]").children()[2]).html();
                     if (scriptText == null) {
                         console.error("失败:获取脚本失败, URL:" + url);
-                        try {
-                            fs.writeFileSync("/var/log/dataService/" + url.replace(/\//g, "-") + ".html", body);
-                        } catch (error) {
-                            conlog.error(error);
-                            fs.writeFileSync("/Users/shengqiang/Desktop/tmp/" + url.replace(/\//g, "-") + ".html", body);
-                        }
+                        fs.writeFileSync("/Users/shengqiang/Desktop/tmp/" + url.replace(/\//g, "-") + ".html", body);
+
                         callback("请求视频识别,URL:" + url, null);
                         return;
                     }
