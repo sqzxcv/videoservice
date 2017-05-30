@@ -34,7 +34,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'git@github.com:sqzxcv/videoservice.git',
       path: '/var/www/production/dataService/',
-      "post-deploy": 'git pull && npm install && pm2 reload ecosystem.config.js --env production'
+      "post-deploy": 'git pull && npm install && pm2 reload ./dataService/ecosystem.config.js --env production'
     },
     dev: {
       user: 'root',

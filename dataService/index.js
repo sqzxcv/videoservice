@@ -250,7 +250,7 @@ function callback(error, response, body) {
     }
 }
 
-//main();
+main();
 
 //定时任务:
 function scheduleJob() {
