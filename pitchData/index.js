@@ -38,13 +38,9 @@ function main() {
             if (outPutResult.length != 0) {
 
                 var str = JSON.stringify(outPutResult);
-                fs.writeFileSync('/Users/shengqiang/Documents/Codes/data/data.json', str);
-                execSHFile("./data.sh", function (err, stdout, stderr) {
-                    if (err) {
-                        console.error("同步 data 文件失败:" + err);
-                    } else {
-                        console.log(stdout);
-                    }
+                fs.appendFile('/Users/shengqiang/Documents/Codes/data/data.json', str, function () {
+
+                    syncData(null);
                 });
             }
         }
@@ -241,3 +237,15 @@ function scheduleJob() {
 }
 
 scheduleJob();
+
+function syncData(callback) {
+
+    execSHFile("./data.sh", function (err, stdout, stderr) {
+        if (err) {
+            console.error("同步 data 文件失败:" + err);
+        } else {
+            console.log(stdout);
+        }
+        callback(err);
+    });
+}
