@@ -31,13 +31,17 @@ function main() {
             var paramArr = JSON.parse(str);
             if (paramArr.length != 0) {
 
-                uploadData(paramArr);
+                uploadData(paramArr, function(err) {
+                    if (err == null) {
+                        sendEmail(mailCotent);
+                    }
+                });
             }
         }
     });
 }
 
-function uploadData(paramArr) {
+function uploadData(paramArr, callback) {
 
     var sqlVideoEntity = [], tagEn = [], tagMap = [];
     var sql, sql2;
@@ -54,6 +58,7 @@ function uploadData(paramArr) {
     if (sqlVideoEntity.length == 0) {
 
         console.error("!!!!!!!!!!!!!!!!当前视频上传失败,");
+        callback("处理后的sqlVideoEntity为空");
         return;
     }
     execTrans.execTrans(sqlVideoEntity, function (err, info) {
@@ -80,6 +85,7 @@ function uploadData(paramArr) {
         }
         if (tagEn.length == 0) {
             console.log("当前视频没有 tag");
+            callback(null);
             clearData();
             return;
         }
@@ -92,6 +98,7 @@ function uploadData(paramArr) {
 
                 console.log("tagmap 插入完成");
             }
+            callback(null);
             clearData();
         });
     });
