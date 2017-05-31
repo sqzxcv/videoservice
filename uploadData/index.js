@@ -21,21 +21,23 @@ var jsonPath = "/var/www/data/data.json";
 
 function main() {
 
-    execSHFile(path.join(__dirname,"/data.sh"), function (err, stdout, stderr) {
+    execSHFile(path.join(__dirname, "/data.sh"), function (err, stdout, stderr) {
         if (err) {
             console.error("同步 data 文件失败:" + err);
         } else {
             console.log(stdout);
 
             var str = fs.readFileSync(jsonPath).toString();
-            var paramArr = JSON.parse(str);
-            if (paramArr.length != 0) {
+            if (str.length != 0) {
+                var paramArr = JSON.parse(str);
+                if (paramArr.length != 0) {
 
-                uploadData(paramArr, function(err) {
-                    if (err == null) {
-                        sendEmail(mailCotent);
-                    }
-                });
+                    uploadData(paramArr, function (err) {
+                        if (err == null) {
+                            sendEmail(mailCotent);
+                        }
+                    });
+                }
             }
         }
     });
@@ -106,8 +108,8 @@ function uploadData(paramArr, callback) {
 
 function clearData() {
 
-    fs.writeFileSync(jsonPath,"");
-    execSHFile(path.join(__dirname,"/cleardata.sh"), function (err, stdout, stderr) {
+    fs.writeFileSync(jsonPath, "");
+    execSHFile(path.join(__dirname, "/cleardata.sh"), function (err, stdout, stderr) {
         if (err) {
             console.error("清空 data 文件失败:" + err);
         } else {
