@@ -11,6 +11,7 @@ const event = new (require('events').EventEmitter)();
 const schedule = require("node-schedule");
 const nodemailer = require("nodemailer");
 var execSHFile = require('child_process').execFile;
+const path = require('path');
 
 var token = "vtiarsokuaemt7v16ggr7oo317";
 var requestURL_last_updates = 'http://www.99vv1.com/latest-updates/';
@@ -19,7 +20,7 @@ var mailCotent = [];
 
 function main() {
 
-    execSHFile("./data.sh", function (err, stdout, stderr) {
+    execSHFile(path.join(__dirname,"/data.sh"), function (err, stdout, stderr) {
         if (err) {
             console.error("同步 data 文件失败:" + err);
         } else {
@@ -98,7 +99,7 @@ function uploadData(paramArr) {
 function clearData() {
 
     fs.writeFileSync('/var/www/production/data/data.json',"");
-    execSHFile("./cleardata.sh", function (err, stdout, stderr) {
+    execSHFile(path.join(__dirname,"/cleardata.sh"), function (err, stdout, stderr) {
         if (err) {
             console.error("清空 data 文件失败:" + err);
         } else {
