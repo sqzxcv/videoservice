@@ -17,6 +17,7 @@ var token = "vtiarsokuaemt7v16ggr7oo317";
 var requestURL_last_updates = 'http://www.99vv1.com/latest-updates/';
 var requestURL_most_favourited = "http://www.99vv1.com/most-favourited/";
 var mailCotent = [];
+var jsonPath = "/var/www/data/data.json";
 
 function main() {
 
@@ -26,7 +27,7 @@ function main() {
         } else {
             console.log(stdout);
 
-            var str = fs.readFileSync('/var/www/data/data.json').toString();
+            var str = fs.readFileSync(jsonPath).toString();
             var paramArr = JSON.parse(str);
             if (paramArr.length != 0) {
 
@@ -98,7 +99,7 @@ function uploadData(paramArr) {
 
 function clearData() {
 
-    fs.writeFileSync('/var/www/production/data/data.json',"");
+    fs.writeFileSync(jsonPath,"");
     execSHFile(path.join(__dirname,"/cleardata.sh"), function (err, stdout, stderr) {
         if (err) {
             console.error("清空 data 文件失败:" + err);
