@@ -9,8 +9,9 @@ const event = new (require('events').EventEmitter)();
 const schedule = require("node-schedule");
 const nodemailer = require("nodemailer");
 var execSHFile = require('child_process').execFile;
+const path = require('path');
 
-var currentPageIndex = 0;
+var currentPageIndex = 4;
 var token = "vtiarsokuaemt7v16ggr7oo317";
 var requestURL_last_updates = 'http://www.99vv1.com/latest-updates/';
 var requestURL_most_favourited = "http://www.99vv1.com/most-favourited/";
@@ -21,11 +22,11 @@ function main() {
 
     event.on("requireNewPage", function (pageIndex) {
 
-        if (pageIndex < 3) {
+        if (pageIndex < 7) {
             console.log("------------------------开始请求视频列表,页码:" + pageIndex);
             //请求视频资源
             var options = {
-                url: requestURL_most_favourited + pageIndex + '/',
+                url: requestURL_last_updates + pageIndex + '/',
                 headers: {
                     'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36",
                     'Referer': 'http://www.99vv1.com/',
@@ -37,11 +38,18 @@ function main() {
 
             if (outPutResult.length != 0) {
 
-                var str = JSON.stringify(outPutResult);
-                fs.appendFile('/Users/shengqiang/Documents/Codes/data/data.json', str, function () {
+                var str = fs.readFileSync('/Users/shengqiang/Documents/Codes/data/data.json').toString();
+                if (str.length != 0) {
+                    try {
+                        var arr = JSON.parse(str);
+                        outPutResult = outPutResult.concat(arr);
+                    } catch (error) {
 
-                    syncData(null);
-                });
+                    }
+                }
+                str = JSON.stringify(outPutResult);
+                fs.writeFileSync('/Users/shengqiang/Documents/Codes/data/data.json', str);
+                syncData(function (err) { });
             }
         }
     });
@@ -212,7 +220,7 @@ function callback(error, response, body) {
                     paramArr[i]['height'] = result['height'];
                     paramArr[i]['tags'] = result['tags'];
                 }
-                
+
                 outPutResult = outPutResult.concat(paramArr);
                 event.emit("requireNewPage", ++currentPageIndex);
             }
@@ -242,7 +250,7 @@ scheduleJob();
 
 function syncData(callback) {
 
-    execSHFile("./data.sh", function (err, stdout, stderr) {
+    execSHFile(path.join(__dirname, "/data.sh"), function (err, stdout, stderr) {
         if (err) {
             console.error("同步 data 文件失败:" + err);
         } else {
