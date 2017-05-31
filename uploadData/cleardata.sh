@@ -1,4 +1,4 @@
-cd /var/www/production/data/
+cd /var/www/data/
 
 
 git add data.json

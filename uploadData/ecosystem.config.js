@@ -33,7 +33,7 @@ module.exports = {
       host: '172.104.91.83',
       ref: 'origin/master',
       repo: 'git@github.com:sqzxcv/videoservice.git',
-      path: '/var/www/production/uploadData/',
+      path: '/var/www/uploadData/',
       "post-deploy": 'git pull && npm install && pm2 reload ./uploadData/ecosystem.config.js --env production'
     },
     dev: {

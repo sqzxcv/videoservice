@@ -4,5 +4,5 @@
 #   mkdir $folder
 # fi
 #cd /Users/shengqiang/Documents/Codes/data/
-cd /var/www/production/data/
+cd /var/www/data/
 git pull

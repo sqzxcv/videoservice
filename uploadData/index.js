@@ -26,7 +26,7 @@ function main() {
         } else {
             console.log(stdout);
 
-            var str = fs.readFileSync('/Users/shengqiang/Documents/Codes/data/data.json').toString();
+            var str = fs.readFileSync('/var/www/data/data.json').toString();
             var paramArr = JSON.parse(str);
             if (paramArr.length != 0) {
 
