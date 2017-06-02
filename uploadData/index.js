@@ -126,6 +126,7 @@ function scheduleJob() {
     //每天早上8点钟获取最新内容
     var j = schedule.scheduleJob({ hour: 8 }, function () {
 
+        mailCotent = [];
         main();
     });
 }

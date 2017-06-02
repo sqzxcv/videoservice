@@ -11,7 +11,7 @@ const nodemailer = require("nodemailer");
 var execSHFile = require('child_process').execFile;
 const path = require('path');
 
-var currentPageIndex = 4;
+var currentPageIndex = 0;
 var token = "vtiarsokuaemt7v16ggr7oo317";
 var requestURL_last_updates = 'http://www.99vv1.com/latest-updates/';
 var requestURL_most_favourited = "http://www.99vv1.com/most-favourited/";
@@ -22,7 +22,7 @@ function main() {
 
     event.on("requireNewPage", function (pageIndex) {
 
-        if (pageIndex < 7) {
+        if (pageIndex < 3) {
             console.log("------------------------开始请求视频列表,页码:" + pageIndex);
             //请求视频资源
             var options = {
