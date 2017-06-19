@@ -12,9 +12,9 @@ var execSHFile = require('child_process').execFile;
 const path = require('path');
 
 var currentPageIndex = 0;
-var token = "vtiarsokuaemt7v16ggr7oo317";
-var requestURL_last_updates = 'http://www.99vv1.com/latest-updates/';
-var requestURL_most_favourited = "http://www.99vv1.com/most-favourited/";
+var token = "55gk6ddvk3ju4bt3pg9m8id9k1";
+var requestURL_last_updates = 'http://99kk5.com/latest-updates/';
+var requestURL_most_favourited = "http://99kk5.com/most-favourited/";
 var mailCotent = [];
 var outPutResult = [];
 
@@ -22,15 +22,16 @@ function main() {
 
     event.on("requireNewPage", function (pageIndex) {
 
-        if (pageIndex < 3) {
+        if (pageIndex < 10) {
             console.log("------------------------开始请求视频列表,页码:" + pageIndex);
             //请求视频资源
             var options = {
                 url: requestURL_last_updates + pageIndex + '/',
                 headers: {
-                    'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36",
-                    'Referer': 'http://www.99vv1.com/',
-                    'Cookie': "PHPSESSID=" + token + "; kt_qparams=sort_by%3Dpost_date; _gat=1; kt_tcookie=1; kt_is_visited=1; _ga=GA1.2.686339515.1493887117; _gid=GA1.2.1778669130.1494145057"
+                    'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+                    'Referer': 'http://99kk5.com/latest-updates/',
+                    'Host': "99kk5.com",
+                    'Cookie': "PHPSESSID=" + token + "; kt_referer=http%3A%2F%2Flove8video.com%2F; kt_tcookie=1; _ga=GA1.2.197140424.1497848164; _gid=GA1.2.2049258620.1497848164; kt_is_visited=1"
                 }
             };
             request(options, callback);
@@ -102,16 +103,15 @@ function callback(error, response, body) {
 
             var contentOption = {
 
-                url: 'http://www.99vv1.com/' + url,
+                url: 'http://99kk5.com/' + url,
                 headers: {
-                    'Referer': "http://www.99vv1.com",
-                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/602.4.8 (KHTML, like Gecko) Version/10.0.3 Safari/602.4.8",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
                     'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
                     'Accept-Language': "zh-CN,zh;q=0.8,zh-TW;q=0.6,en;q=0.4",
-                    'Host': "www.99vv1.com",
+                    'Host': "99kk5.com",
                     'Upgrade-Insecure-Requests': 1,
                     "Connection": "keep-alive",
-                    'Cookie': "PHPSESSID=" + token + "; kt_qparams=id%3D42365%26dir%3D6ee0e9ad18643ddc9dcf41d2ac10131a; _gat=1; kt_tcookie=1; kt_tcookie=1; _ga=GA1.2.686339515.1493887117; _gid=GA1.2.1049107255.1494514354; kt_is_visited=1",
+                    'Cookie': "PHPSESSID=" + token + "; kt_referer=http%3A%2F%2Flove8video.com%2F; kt_qparams=id%3D69926%26dir%3Db178; kt_tcookie=1; _ga=GA1.2.197140424.1497848164; _gid=GA1.2.2049258620.1497848164; _gat=1; kt_is_visited=1",
                 }
             };
             request(contentOption, function (error, response, body) {
