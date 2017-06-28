@@ -10,10 +10,11 @@ const schedule = require("node-schedule");
 const nodemailer = require("nodemailer");
 var execSHFile = require('child_process').execFile;
 const path = require('path');
+var moment = require('moment');
 
 var currentPageIndex = 0;
 var token = "j25n3jlddj6gcequgp9bg8ops7";
-var cook = `__cfduid=dbbe996ac26c8eb21de5957ae5a8297231498187080; PHPSESSID=j25n3jlddj6gcequgp9bg8ops7; kt_tcookie=1; _ga=GA1.2.1049765528.1498187083; _gid=GA1.2.1187703988.1498446269; kt_is_visited=1`
+var cook = `__cfduid=dbbe996ac26c8eb21de5957ae5a8297231498187080; PHPSESSID=j25n3jlddj6gcequgp9bg8ops7; kt_referer=http%3A%2F%2Flocalhost%3A3000%2F0; HstCfa3517525=1498624935773; HstCmu3517525=1498624935773; kt_tcookie=1; HstCla3517525=1498627676180; HstPn3517525=2; HstPt3517525=2; HstCnv3517525=1; HstCns3517525=2; __dtsu=2DE7B66B8E4F1959C418903702741259; _gat=1; kt_tcookie=1; _ga=GA1.2.1049765528.1498187083; _gid=GA1.2.1187703988.1498446269; kt_is_visited=1`;
 var requestURL_last_updates = 'http://99kk5.com/latest-updates/';
 var requestURL_most_favourited = "http://99kk5.com/most-favourited/";
 var vip_url = `http://99kk5.com/viplatest-updates/`;
@@ -83,7 +84,7 @@ function callback(error, response, body) {
             duration = (parseInt(tmparr[0], 10) * 60 + parseInt(tmparr[1], 10)) * 1000;//毫秒;时间戳
             tmpNode = $("span[class=desc]", element);
             view_count = parseInt($("span[class=views]", tmpNode).text().replace("次观看", ""), 10);
-            upload_time = new Date().getTime();//$("span[class=data]", tmpNode).text().replace(/\s+/g, "");
+            upload_time = moment().unix();//$("span[class=data]", tmpNode).text().replace(/\s+/g, "");
             var param = {
                 "title": title,
                 "url": url,
@@ -101,7 +102,7 @@ function callback(error, response, body) {
         //请求单个视频
         var contentDict;
         var urla = [urlArr[0], urlArr[1], urlArr[2]];
-        async.mapLimit(urlArr, 2, function (url, callback) {
+        async.mapLimit(urlArr, 1, function (url, callback) {
 
             var contentOption = {
 
@@ -116,8 +117,8 @@ function callback(error, response, body) {
                     'Cookie': cook//"PHPSESSID=" + token + "; kt_referer=http%3A%2F%2Flove8video.com%2F; kt_qparams=id%3D69926%26dir%3Db178; kt_tcookie=1; _ga=GA1.2.197140424.1497848164; _gid=GA1.2.2049258620.1497848164; _gat=1; kt_is_visited=1",
                 }
             };
-            request(contentOption, function (error, response, body) {
-
+            request(contentOption, async function (error, response, body) {
+                // console.log('start');
                 if (response.statusCode == 200) {
 
                     var $ = cheerio.load(body);
@@ -186,13 +187,25 @@ function callback(error, response, body) {
                     var result = videoInfo;
                     //result[videoInfo["video_id"]] = videoInfo;
                     console.log("-----,title:" + $("div[class=wrap-title]").text().replace(/\s+/g, "") + ";  url:" + url);
+                    await sleep(3000);
+                    // console.log('end');
                     callback(null, result);
                 } else {
 
+                    await sleep(3000);
+                    // console.log('end');
                     callback(error, null);
                 }
-
             });
+
+            // var start = async function () {
+            //     // 在这里使用起来就像同步代码那样直观
+            //     console.log('start');
+            //     await sleep(3000);
+            //     console.log('end');
+            // };
+
+            // start();
         }, function (err, results) {
 
             if (results) {
@@ -237,6 +250,14 @@ function callback(error, response, body) {
 }
 
 main();
+
+var sleep = function (time) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve();
+        }, time);
+    })
+};
 
 //定时任务:
 function scheduleJob() {
