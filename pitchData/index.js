@@ -25,7 +25,7 @@ function main() {
 
     event.on("requireNewPage", function (pageIndex) {
 
-        if (pageIndex < 10) {
+        if (pageIndex < 1) {
             console.log("------------------------开始请求视频列表,页码:" + pageIndex);
             //请求视频资源
             var options = {
@@ -119,7 +119,7 @@ function callback(error, response, body) {
             };
             request(contentOption, async function (error, response, body) {
                 // console.log('start');
-                if (response.statusCode == 200) {
+                if (error == null && response.statusCode == 200) {
 
                     var $ = cheerio.load(body);
                     fs.writeFileSync("/Users/shengqiang/Desktop/tmp/body.html", body);
@@ -187,7 +187,7 @@ function callback(error, response, body) {
                     var result = videoInfo;
                     //result[videoInfo["video_id"]] = videoInfo;
                     console.log("-----,title:" + $("div[class=wrap-title]").text().replace(/\s+/g, "") + ";  url:" + url);
-                    await sleep(3000);
+                    await sleep(1000);
                     // console.log('end');
                     callback(null, result);
                 } else {
