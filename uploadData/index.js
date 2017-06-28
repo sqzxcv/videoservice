@@ -49,7 +49,7 @@ function uploadData(paramArr, callback) {
     var sql, sql2;
     var param_sql, par;
     var titles = [];
-    for (var i = 0; i < paramArr.length; i++) {
+    for (var i = paramArr.length - 1; i >= 0; i--) {
 
         sql = "INSERT ignore INTO videos(video_index,title,thumbnail,view_count,upload_time,duration,lq_content,hq_content,preview_url,v_like,v_unlike,url,width,height) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         param_sql = [paramArr[i]['video_index'], paramArr[i]['title'], paramArr[i]['thumbnail'], paramArr[i]['view_count'], paramArr[i]['upload_time'], paramArr[i]['duration'], paramArr[i]['video_url'],

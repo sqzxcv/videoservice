@@ -12,9 +12,11 @@ var execSHFile = require('child_process').execFile;
 const path = require('path');
 
 var currentPageIndex = 0;
-var token = "55gk6ddvk3ju4bt3pg9m8id9k1";
+var token = "j25n3jlddj6gcequgp9bg8ops7";
+var cook = `__cfduid=dbbe996ac26c8eb21de5957ae5a8297231498187080; PHPSESSID=j25n3jlddj6gcequgp9bg8ops7; kt_tcookie=1; _ga=GA1.2.1049765528.1498187083; _gid=GA1.2.1187703988.1498446269; kt_is_visited=1`
 var requestURL_last_updates = 'http://99kk5.com/latest-updates/';
 var requestURL_most_favourited = "http://99kk5.com/most-favourited/";
+var vip_url = `http://99kk5.com/viplatest-updates/`;
 var mailCotent = [];
 var outPutResult = [];
 
@@ -26,12 +28,12 @@ function main() {
             console.log("------------------------开始请求视频列表,页码:" + pageIndex);
             //请求视频资源
             var options = {
-                url: requestURL_last_updates + pageIndex + '/',
+                url: vip_url + pageIndex + '/',
                 headers: {
                     'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
                     'Referer': 'http://99kk5.com/latest-updates/',
                     'Host': "99kk5.com",
-                    'Cookie': "PHPSESSID=" + token + "; kt_referer=http%3A%2F%2Flove8video.com%2F; kt_tcookie=1; _ga=GA1.2.197140424.1497848164; _gid=GA1.2.2049258620.1497848164; kt_is_visited=1"
+                    'Cookie': cook//"PHPSESSID=" + token + "; kt_referer=http%3A%2F%2Flove8video.com%2F; kt_tcookie=1; _ga=GA1.2.197140424.1497848164; _gid=GA1.2.2049258620.1497848164; kt_is_visited=1"
                 }
             };
             request(options, callback);
@@ -111,7 +113,7 @@ function callback(error, response, body) {
                     'Host': "99kk5.com",
                     'Upgrade-Insecure-Requests': 1,
                     "Connection": "keep-alive",
-                    'Cookie': "PHPSESSID=" + token + "; kt_referer=http%3A%2F%2Flove8video.com%2F; kt_qparams=id%3D69926%26dir%3Db178; kt_tcookie=1; _ga=GA1.2.197140424.1497848164; _gid=GA1.2.2049258620.1497848164; _gat=1; kt_is_visited=1",
+                    'Cookie': cook//"PHPSESSID=" + token + "; kt_referer=http%3A%2F%2Flove8video.com%2F; kt_qparams=id%3D69926%26dir%3Db178; kt_tcookie=1; _ga=GA1.2.197140424.1497848164; _gid=GA1.2.2049258620.1497848164; _gat=1; kt_is_visited=1",
                 }
             };
             request(contentOption, function (error, response, body) {
@@ -162,7 +164,9 @@ function callback(error, response, body) {
 
                     //处理 tag
                     var tmpNodes = $("div[class=description-block]").children();
-                    var tags = [];
+                    //todo 默认将该视频打上 tag,用完立刻注释
+                    var tags = [`viplatest-updates`];
+                    // var tags = [];
                     for (var i = 0; i < tmpNodes.length; i++) {
 
                         if ($("span", tmpNodes[i]).text().search("影片分类:") != -1
