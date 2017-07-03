@@ -18,6 +18,7 @@ var cook = `__cfduid=dbbe996ac26c8eb21de5957ae5a8297231498187080; PHPSESSID=j25n
 var requestURL_last_updates = 'http://99kk5.com/latest-updates/';
 var requestURL_most_favourited = "http://99kk5.com/most-favourited/";
 var vip_url = `http://99kk5.com/viplatest-updates/`;
+var vip_url_most_favourited = `http://99kk5.com/vipmost-favourited/`;
 var mailCotent = [];
 var outPutResult = [];
 
@@ -25,11 +26,27 @@ function main() {
 
     event.on("requireNewPage", function (pageIndex) {
 
-        if (pageIndex < 1) {
+        if (outPutResult.length != 0) {
+
+            var str = fs.readFileSync('/Users/shengqiang/Documents/Codes/data/data.json').toString();
+            if (str.length != 0) {
+                try {
+                    var arr = JSON.parse(str);
+                    outPutResult = outPutResult.concat(arr);
+                } catch (error) {
+
+                }
+            }
+            str = JSON.stringify(outPutResult);
+            fs.writeFileSync('/Users/shengqiang/Documents/Codes/data/data.json', str);
+            syncData(function (err) { });
+            outPutResult = [];
+        }
+        if (pageIndex < 5) {
             console.log("------------------------开始请求视频列表,页码:" + pageIndex);
             //请求视频资源
             var options = {
-                url: vip_url + pageIndex + '/',
+                url: requestURL_last_updates + pageIndex + '/',
                 headers: {
                     'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
                     'Referer': 'http://99kk5.com/latest-updates/',
@@ -39,25 +56,18 @@ function main() {
             };
             request(options, callback);
         } else {
-
-            if (outPutResult.length != 0) {
-
-                var str = fs.readFileSync('/Users/shengqiang/Documents/Codes/data/data.json').toString();
-                if (str.length != 0) {
-                    try {
-                        var arr = JSON.parse(str);
-                        outPutResult = outPutResult.concat(arr);
-                    } catch (error) {
-
-                    }
-                }
-                str = JSON.stringify(outPutResult);
-                fs.writeFileSync('/Users/shengqiang/Documents/Codes/data/data.json', str);
-                syncData(function (err) { });
-            }
         }
     });
-    event.emit("requireNewPage", currentPageIndex);
+
+    execSHFile(path.join(__dirname, "/pulldata.sh"), function (err, stdout, stderr) {
+        if (err) {
+            console.error("同步 data 文件失败:" + err);
+        } else {
+            console.log(stdout);
+
+            event.emit("requireNewPage", currentPageIndex);
+        }
+    });
 }
 
 function callback(error, response, body) {
@@ -166,7 +176,7 @@ function callback(error, response, body) {
                     //处理 tag
                     var tmpNodes = $("div[class=description-block]").children();
                     //todo 默认将该视频打上 tag,用完立刻注释
-                    var tags = [`viplatest-updates`];
+                    var tags = [`viplatest-updates`, `精品视频`];
                     // var tags = [];
                     for (var i = 0; i < tmpNodes.length; i++) {
 
