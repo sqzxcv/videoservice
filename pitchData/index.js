@@ -20,6 +20,7 @@ var requestURL_most_favourited = "http://99kk5.com/most-favourited/";
 var vip_url = `http://99kk5.com/viplatest-updates/`;
 var vip_url_most_favourited = `http://99kk5.com/vipmost-favourited/`;
 var vip_url_rated = `http://99kk5.com/viptop-rated/`;
+var my_favourite_videos_url = `http://99kk5.com/my_favourite_videos/`;
 var mailCotent = [];
 var outPutResult = [];
 
@@ -41,13 +42,14 @@ function main() {
             str = JSON.stringify(outPutResult);
             fs.writeFileSync('/Users/shengqiang/Documents/Codes/data/data.json', str);
             syncData(function (err) { });
+            console.log("++++++++++++++++++++获取视频数量:" + outPutResult.length);
             outPutResult = [];
         }
-        if (pageIndex < 5) {
+        if (pageIndex < 9) {
             console.log("------------------------开始请求视频列表,页码:" + pageIndex);
             //请求视频资源
             var options = {
-                url: requestURL_last_updates + pageIndex + '/',
+                url: my_favourite_videos_url + pageIndex + '/',
                 headers: {
                     'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
                     'Referer': 'http://99kk5.com/latest-updates/',
@@ -177,7 +179,7 @@ function callback(error, response, body) {
                     //处理 tag
                     var tmpNodes = $("div[class=description-block]").children();
                     //todo 默认将该视频打上 tag,用完立刻注释
-                    var tags = [`viplatest-updates`, `精品视频`];
+                    var tags = [`viplatest-updates`, `精品视频`,`my_favourite`];
                     // var tags = [];
                     for (var i = 0; i < tmpNodes.length; i++) {
 
