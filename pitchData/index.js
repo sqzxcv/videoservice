@@ -19,6 +19,7 @@ var requestURL_last_updates = 'http://99kk5.com/latest-updates/';
 var requestURL_most_favourited = "http://99kk5.com/most-favourited/";
 var vip_url = `http://99kk5.com/viplatest-updates/`;
 var vip_url_most_favourited = `http://99kk5.com/vipmost-favourited/`;
+var vip_url_rated = `http://99kk5.com/viptop-rated/`;
 var mailCotent = [];
 var outPutResult = [];
 

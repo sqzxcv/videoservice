@@ -51,8 +51,9 @@ function uploadData(paramArr, callback) {
     var titles = [];
     for (var i = paramArr.length - 1; i >= 0; i--) {
 
-        sql = "INSERT ignore INTO videos(video_index,title,thumbnail,view_count,upload_time,duration,lq_content,hq_content,preview_url,v_like,v_unlike,url,width,height) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        sql = "INSERT INTO videos(video_index,title,thumbnail,view_count,upload_time,duration,lq_content,hq_content,preview_url,v_like,v_unlike,url,width,height) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE title = ?,thumbnail = ?,view_count = ?,upload_time = ?,duration = ?,lq_content = ?,hq_content = ?,preview_url = ?,v_like = ?,v_unlike = ?,url = ?,width = ?,height = ?";
         param_sql = [paramArr[i]['video_index'], paramArr[i]['title'], paramArr[i]['thumbnail'], paramArr[i]['view_count'], paramArr[i]['upload_time'], paramArr[i]['duration'], paramArr[i]['video_url'],
+        paramArr[i]['video_alt_url'], paramArr[i]['preview_url'], paramArr[i]['like'], paramArr[i]['unlike'], paramArr[i]['url'], paramArr[i]['width'], paramArr[i]['height'], paramArr[i]['title'], paramArr[i]['thumbnail'], paramArr[i]['view_count'], paramArr[i]['upload_time'], paramArr[i]['duration'], paramArr[i]['video_url'],
         paramArr[i]['video_alt_url'], paramArr[i]['preview_url'], paramArr[i]['like'], paramArr[i]['unlike'], paramArr[i]['url'], paramArr[i]['width'], paramArr[i]['height']];
         sqlVideoEntity.push(execTrans._getNewSqlParamEntity(sql, param_sql));
         titles.push(paramArr[i]['title']);
